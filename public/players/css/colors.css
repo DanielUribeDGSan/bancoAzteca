@@ -1,0 +1,32 @@
+:root {
+  --gris: #fafafa;
+  --primary: #af2727;
+  --overlay: #000;
+  --opacity: 0;
+  /* --fondoImage: url('../img/fondo-player.png'); */
+  --fondoImage: none;
+  --fondoChat: none;
+  --text-color: #000;
+  --fondo: #ffffff;
+  --fondo-chat: #006341;
+  --grisNav: #a2a2a2;
+  --blanco: #fff;
+  --borderBoton: #fff;
+  --colorBoton: #fff;
+  --titleUser: #fff;
+  --nameUser: #fff;
+  --bienvenida: #fff;
+  --scrollColor: #fff;
+  --scroll2Color: #fff;
+  --userChatAdmin: #43b02a;
+  --userColorChatAdmin: #fff;
+  --fondoChatAdmin: #43b02a;
+  --userChat: #43b02a;
+  --userColorChat: #fff;
+}
+/* 006341
+af2727
+75787b
+43b02a
+e63422
+53565a */
