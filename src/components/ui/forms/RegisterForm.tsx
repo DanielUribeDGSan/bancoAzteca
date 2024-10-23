@@ -7,6 +7,7 @@ import { ProgressButton } from "../progress/ProgressButton";
 import { initialValues, loginSchema } from "./registerFormConfig";
 import {
   createTheme,
+  MenuItem,
   TextField,
   ThemeProvider,
   useMediaQuery,
@@ -96,18 +97,24 @@ export const RegisterForm = () => {
             </div>
             <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 mt-10">
               <TextField
+                select
                 className="w-100"
-                label="Cargo"
+                label="Seleccione su cargo"
                 variant="outlined"
                 value={values.post}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 id="post"
                 name="post"
-                type="text"
                 error={touched.post && Boolean(errors.post)}
                 helperText={touched.post && errors.post}
-              />
+              >
+                <MenuItem value="Académico">Académico</MenuItem>
+                <MenuItem value="Estudiante">Estudiante</MenuItem>
+                <MenuItem value="Estudiante de posgrado">
+                  Estudiante de posgrado
+                </MenuItem>
+              </TextField>
             </div>
             <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 mt-10">
               <TextField
@@ -157,6 +164,18 @@ export const RegisterForm = () => {
                   </button>
                 </>
               )}
+            </div>
+            <div className="col-xxl-12 col-xl-12 col-lg-12 col-md-12 mt-10">
+              <span className="text-black mr-2 d-inline-flex gap-1">
+                Términos y condiciones
+                <a
+                  href="/aviso-de-privacidad-integral-baz.pdf"
+                  className="ml-2 d-inline-flex"
+                  style={{ color: "#0000ff" }}
+                >
+                  haga clic aquí
+                </a>
+              </span>
             </div>
           </div>
 
