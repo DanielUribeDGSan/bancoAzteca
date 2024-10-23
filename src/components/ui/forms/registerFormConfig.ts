@@ -27,10 +27,10 @@ export const loginSchema = Yup.object({
   post: Yup.string()
     .matches(
       /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/,
-      "Solo se permiten letras en el nombre"
+      "Solo se permiten letras en el cargo"
     )
-    .required("El nombre es obligatorio")
-    .label("Nombre"),
+    .required("El cargo es obligatorio")
+    .label("Cargo"),
   email: Yup.string()
     .required("El email es obligatorio")
     .email("Debes ingresar un email Válido")
