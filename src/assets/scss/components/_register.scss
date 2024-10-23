@@ -3,6 +3,10 @@
 .section__register {
   min-height: 100vh;
   position: relative;
+  @media #{$md,$sm,$xs} {
+    display: flex;
+    flex-direction: column;
+  }
 
   & .banner-title {
     & .logo {

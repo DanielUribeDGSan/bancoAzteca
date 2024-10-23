@@ -82,16 +82,16 @@ export const RegisterForm = () => {
             <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 mt-10">
               <TextField
                 className="w-100"
-                label="Institución o empresa"
+                label="Email"
                 variant="outlined"
-                value={values.company}
+                value={values.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                id="company"
-                name="company"
-                type="text"
-                error={touched.company && Boolean(errors.company)}
-                helperText={touched.company && errors.company}
+                id="email"
+                name="email"
+                type="email"
+                error={touched.email && Boolean(errors.email)}
+                helperText={touched.email && errors.email}
               />
             </div>
             <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 mt-10">
@@ -112,21 +112,6 @@ export const RegisterForm = () => {
             <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 mt-10">
               <TextField
                 className="w-100"
-                label="Email"
-                variant="outlined"
-                value={values.email}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                id="email"
-                name="email"
-                type="email"
-                error={touched.email && Boolean(errors.email)}
-                helperText={touched.email && errors.email}
-              />
-            </div>
-            <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 mt-10">
-              <TextField
-                className="w-100"
                 label="Teléfono"
                 variant="outlined"
                 value={values.phone}
@@ -137,6 +122,21 @@ export const RegisterForm = () => {
                 type="text"
                 error={touched.phone && Boolean(errors.phone)}
                 helperText={touched.phone && errors.phone}
+              />
+            </div>
+            <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 mt-10">
+              <TextField
+                className="w-100"
+                label="Institución o empresa"
+                variant="outlined"
+                value={values.company}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                id="company"
+                name="company"
+                type="text"
+                error={touched.company && Boolean(errors.company)}
+                helperText={touched.company && errors.company}
               />
             </div>
             <div

@@ -444,3 +444,10 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
     box-shadow: none !important;
   }
 }
+
+.h1 {
+  font-weight: 700;
+  @media #{$sm,$xs} {
+    font-size: 1.8rem;
+  }
+}
