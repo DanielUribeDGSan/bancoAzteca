@@ -22,6 +22,8 @@
   }
   @media #{$sm,$xs} {
     flex-direction: column;
+    height: auto;
+    overflow: hidden;
   }
 
   .content {
