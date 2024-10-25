@@ -16,6 +16,7 @@ import CloseIcon from "@mui/icons-material/Close";
 
 import "./ponentes.scss";
 import { Dialog, DialogContent } from "@mui/material";
+import { MenuTop } from "../../components/menu/MenuTop";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -123,6 +124,7 @@ export const Ponentes = () => {
   return (
     <ThemeProvider theme={theme}>
       <div className="ponentes_main">
+        <MenuTop styleMenu={{ position: "relative" }} />
         <div className="content-ponentes">
           <Grid container spacing={2}>
             {itemData.map(
