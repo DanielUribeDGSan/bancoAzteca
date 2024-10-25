@@ -7,7 +7,7 @@ import CardMedia from "@mui/material/CardMedia";
 import CardActions from "@mui/material/CardActions";
 import Avatar from "@mui/material/Avatar";
 import IconButton, { IconButtonProps } from "@mui/material/IconButton";
-import { red } from "@mui/material/colors";
+import SettingsVoiceIcon from "@mui/icons-material/SettingsVoice";
 import { useState } from "react";
 
 import XIcon from "@mui/icons-material/X";
@@ -146,11 +146,7 @@ export const Ponentes = () => {
                           textOverflow: "ellipsis",
                         },
                       }}
-                      avatar={
-                        <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                          R
-                        </Avatar>
-                      }
+                      avatar={<SettingsVoiceIcon />}
                       action={<IconButton aria-label="settings"></IconButton>}
                       title={name}
                       subheader={author}
