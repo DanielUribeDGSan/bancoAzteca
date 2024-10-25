@@ -82,7 +82,7 @@ const itemData = [
   {
     id: 2,
     img: "/assets/img/ponentes/ponente2.png",
-    name: "Burger",
+    name: "Vinicius Covas",
     author: "Comunicador, mercadólogo, investigador de cultura digital",
     linkX: "https://viniciuscovas.com/",
     linkLin: "https://www.linkedin.com/in/viniciuscovas/?locale=es_ES",
@@ -91,7 +91,7 @@ const itemData = [
   {
     id: 3,
     img: "/assets/img/ponentes/ponente3.png",
-    name: "Camera",
+    name: "Luis Hernández",
     author: "Periodista, abogado, escritor",
     linkX:
       "https://www.linkedin.com/in/rafael-alvarado-126158252/?originalSubdomain=mx",
@@ -102,7 +102,7 @@ const itemData = [
   {
     id: 4,
     img: "/assets/img/ponentes/ponente4.png",
-    name: "Coffee",
+    name: "Rafael Alvarado",
     author: "Psicólogo, investigador social",
     linkX:
       "https://www.linkedin.com/in/rafael-alvarado-126158252/?originalSubdomain=mx",
