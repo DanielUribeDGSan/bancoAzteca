@@ -106,7 +106,7 @@ export const useDanone = () => {
             title: "",
             html: `
             <img class="img-fluid" src="./assets/img/logos/LOGO_BAZ.png" style="margin-bottom:2rem; objet-fit: contain; " width="200" />
-            <h2 class="fw-bold">Acceso correcto</h2>
+            <h2 class="fw-bold">Registro correcto</h2>
             <p>¡Te esperamos a partir del Jueves 7 de noviembre a las 09:45 am.!</p>
             `,
             icon: undefined,
