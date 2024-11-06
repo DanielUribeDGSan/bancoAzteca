@@ -26,7 +26,7 @@ export const MenuTop = ({ styleMenu, styleNav }: Props) => {
             Inicio
           </NavLink>
         </li>
-        {!userData?.email && (
+        {!userData?.email ? (
           <>
             <li>
               <NavLink
@@ -51,6 +51,16 @@ export const MenuTop = ({ styleMenu, styleNav }: Props) => {
               </NavLink>
             </li>
           </>
+        ) : (
+          <li>
+            <NavLink
+              to="/en-vivo"
+              className={`text-black ${isActive("/en-vivo") ? "active" : ""}`}
+              style={styleNav}
+            >
+              En vivo
+            </NavLink>
+          </li>
         )}
         <li>
           <NavLink
