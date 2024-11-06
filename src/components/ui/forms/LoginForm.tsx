@@ -71,7 +71,7 @@ export const LoginForm = () => {
             <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 mt-10">
               <TextField
                 className="w-100"
-                label="Nombre completo"
+                label="Clave"
                 variant="outlined"
                 value={values.clave}
                 onChange={handleChange}

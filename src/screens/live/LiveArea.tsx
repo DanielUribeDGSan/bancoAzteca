@@ -1,3 +1,4 @@
+import { MenuTop } from "../../components/menu/MenuTop";
 import { RotateVerticalPhone } from "../../components/ui/rotatePhone/RotateVerticalPhone";
 import { useUser } from "../../hooks/useUser";
 
@@ -7,6 +8,13 @@ export const LiveArea = () => {
   return (
     <>
       <RotateVerticalPhone />
+      <MenuTop
+        styleMenu={{
+          top: "1%",
+          zIndex: 999,
+          left: "0%",
+        }}
+      />
 
       <div className="container-iframe">
         {!isLoadingUser && (

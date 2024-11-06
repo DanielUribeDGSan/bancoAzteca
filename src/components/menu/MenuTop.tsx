@@ -1,5 +1,6 @@
 import { NavLink, useLocation } from "react-router-dom";
 import "./MenuTop.scss";
+import { useUser } from "../../hooks/useUser";
 
 interface Props {
   styleMenu?: React.CSSProperties | undefined;
@@ -7,6 +8,7 @@ interface Props {
 }
 export const MenuTop = ({ styleMenu, styleNav }: Props) => {
   const location = useLocation();
+  const { userData } = useUser();
 
   const isActive = (path: string) => {
     return location.pathname === path;
@@ -24,26 +26,32 @@ export const MenuTop = ({ styleMenu, styleNav }: Props) => {
             Inicio
           </NavLink>
         </li>
-        <li>
-          <NavLink
-            to="/iniciar-sesion"
-            className={`text-black ${
-              isActive("/iniciar-sesion") ? "active" : ""
-            }`}
-            style={styleNav}
-          >
-            Iniciar sesión
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/registro"
-            className={`text-black ${isActive("/registro") ? "active" : ""}`}
-            style={styleNav}
-          >
-            Registro
-          </NavLink>
-        </li>
+        {!userData?.email && (
+          <>
+            <li>
+              <NavLink
+                to="/iniciar-sesion"
+                className={`text-black ${
+                  isActive("/iniciar-sesion") ? "active" : ""
+                }`}
+                style={styleNav}
+              >
+                Iniciar sesión
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/registro"
+                className={`text-black ${
+                  isActive("/registro") ? "active" : ""
+                }`}
+                style={styleNav}
+              >
+                Registro
+              </NavLink>
+            </li>
+          </>
+        )}
         <li>
           <NavLink
             to="/ponentes"
