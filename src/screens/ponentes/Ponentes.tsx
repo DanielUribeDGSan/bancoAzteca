@@ -81,15 +81,6 @@ const itemData = [
   },
   {
     id: 2,
-    img: "/assets/img/ponentes/ponente5.png",
-    name: "Tonatiuh  Rodríguez",
-    author: "Director General",
-    linkX: "",
-    linkLin: "",
-    imgDescription: "/assets/img/ponentes/description5.png",
-  },
-  {
-    id: 3,
     img: "/assets/img/ponentes/ponente2.png",
     name: "Vinicius Covas",
     author: "Comunicador, mercadólogo, investigador de cultura digital",
@@ -98,7 +89,7 @@ const itemData = [
     imgDescription: "/assets/img/ponentes/description2.png",
   },
   {
-    id: 4,
+    id: 3,
     img: "/assets/img/ponentes/ponente3.png",
     name: "Luis Hernández",
     author: "Periodista, abogado, escritor",
@@ -109,7 +100,7 @@ const itemData = [
     imgDescription: "/assets/img/ponentes/description3.png",
   },
   {
-    id: 5,
+    id: 4,
     img: "/assets/img/ponentes/ponente4.png",
     name: "Rafael Alvarado",
     author: "Psicólogo, investigador social",
@@ -117,6 +108,15 @@ const itemData = [
       "https://www.linkedin.com/in/rafael-alvarado-126158252/?originalSubdomain=mx",
     linkLin: "https://bitacorasocial.com/inicio.html#",
     imgDescription: "/assets/img/ponentes/description4.png",
+  },
+  {
+    id: 5,
+    img: "/assets/img/ponentes/ponente5.png",
+    name: "Tonatiuh  Rodríguez",
+    author: "Director General",
+    linkX: "",
+    linkLin: "",
+    imgDescription: "/assets/img/ponentes/description5.png",
   },
 ];
 
