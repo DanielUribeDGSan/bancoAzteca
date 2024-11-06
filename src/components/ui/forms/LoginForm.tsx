@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useFormik } from "formik";
 import { useDanone } from "../../../hooks/useDanone";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ProgressButton } from "../progress/ProgressButton";
 import { initialValues, loginSchema } from "./loginFormConfig";
 import {
@@ -11,6 +11,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { FormValuesLogin } from "../../../interfaces/registerForm";
+import Swal from "sweetalert2";
 
 const theme = createTheme({
   palette: {
@@ -24,9 +25,36 @@ const theme = createTheme({
 });
 
 export const LoginForm = () => {
-  const { login } = useDanone();
+  const { login, recuperarClave } = useDanone();
   const movilIpadaScreen = useMediaQuery("(max-width:1000px)");
+
+  const btnClose = useRef(null);
   const [loader, setLoader] = useState(false);
+  const [loaderRecuperar, setLoaderRecuperar] = useState(false);
+  const [emailRecuperar, setEmailRecuperar] = useState("");
+
+  const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmailRecuperar(e.target.value);
+  };
+
+  const handleClickRecuperar = async () => {
+    if (emailRecuperar == "") {
+      Swal.fire({
+        title: "Email vacío",
+        text: "Debes ingresar tu email",
+        icon: "warning",
+        confirmButtonText: "Aceptar",
+      });
+      return null;
+    }
+    setLoaderRecuperar(true);
+    const rep = await recuperarClave({ email: emailRecuperar });
+    if (rep) {
+      setEmailRecuperar("");
+      if (btnClose.current) (btnClose.current as HTMLElement | null)?.click();
+    }
+    setLoaderRecuperar(false);
+  };
 
   const formik = useFormik({
     initialValues,
@@ -103,112 +131,77 @@ export const LoginForm = () => {
                 </>
               )}
             </div>
-          </div>
-
-          {/* <div className="row mx-0 mb-15 p-0">
-            <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 ">
-              <label htmlFor="sendingInstitution">
-                INSTITUCIÓN DE PROCEDENCIA<span>*</span>
-              </label>
-              <input
-                className="input-login"
-                value={values.sendingInstitution}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                id="sendingInstitution"
-                name="sendingInstitution"
-                type="text"
-                placeholder="Institución"
-              />
-              {touched.sendingInstitution && (
-                <ErrorMsg error={errors.sendingInstitution || ""} />
-              )}
-            </div>
-            <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 ">
-              <label htmlFor="nationality">
-                NACIONALIDAD<span>*</span>
-              </label>
-              <select
-                className="input-login"
-                value={values.nationality}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                id="nationality"
-                name="nationality"
-              >
-                {nationalityData.map(({ label, value }, i) => (
-                  <option key={i} value={value}>
-                    {label}
-                  </option>
-                ))}
-              </select>
-
-              {touched.nationality && (
-                <ErrorMsg error={errors.nationality || ""} />
-              )}
+            <div className="col-xxl-6 col-xl-6 col-lg-6 col-12 col-md-6 mt-10">
+              <span className="text-black mr-2 d-inline-flex gap-1">
+                Recupera tu clave
+                <button
+                  type="button"
+                  className="ml-2 d-inline-flex"
+                  style={{ color: "#0000ff" }}
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  haciendo clic aquí
+                </button>
+              </span>
             </div>
           </div>
-
-          <div className="row mx-0 mb-15 p-0">
-            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-4 ">
-              <label htmlFor="age">
-                EDAD<span>*</span>
-              </label>
-              <input
-                className="input-login"
-                value={values.age !== 0 ? values.age : ""}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                id="age"
-                name="age"
-                type="text"
-                placeholder="Introduce tu edad"
-              />
-              {touched.age && <ErrorMsg error={errors.age || ""} />}
-            </div>
-            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-4 ">
-              <label htmlFor="email">
-                EMAIL<span>*</span>
-              </label>
-              <input
-                className="input-login"
-                value={values.email}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                id="email"
-                name="email"
-                type="text"
-                placeholder="Introduce tu mail"
-              />
-              {touched.email && <ErrorMsg error={errors.email || ""} />}
-            </div>
-            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-4 ">
-              <label htmlFor="confirmEmail">
-                CONFIRMA EMAIL<span>*</span>
-              </label>
-              <input
-                className="input-login"
-                value={values.confirmEmail}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                id="confirmEmail"
-                name="confirmEmail"
-                type="text"
-                placeholder="Confirma tu mail"
-              />
-              {touched.confirmEmail && (
-                <ErrorMsg error={errors.confirmEmail || ""} />
-              )}
-            </div>
-          </div> */}
         </div>
       </form>
-      {/* <Cookie
-        lenguage="esp"
-        setCheck={handleClickTerm}
-        setOpen={setOpen}
-        open={open}
-      /> */}
+      <div
+        className="modal fade"
+        id="exampleModal"
+        tabIndex={-1}
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title text-black" id="exampleModalLabel">
+                Recuperar clave
+              </h5>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+                ref={btnClose}
+              ></button>
+            </div>
+            <div className="modal-body">
+              <TextField
+                className="w-100"
+                label="Email"
+                variant="outlined"
+                value={emailRecuperar}
+                onChange={handleChangeEmail}
+                id="emailRecuperar"
+                name="emailRecuperar"
+                type="email"
+              />
+              <div className="w-100">
+                {loaderRecuperar ? (
+                  <div className="mt-10">
+                    <ProgressButton />
+                  </div>
+                ) : (
+                  <>
+                    <button
+                      className="btn-secondary-md fw-bold text-white mt-20"
+                      type="button"
+                      aria-label="Iniciar sesión"
+                      onClick={handleClickRecuperar}
+                    >
+                      Recuperar
+                    </button>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </ThemeProvider>
   );
 };

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { RegisterUser } from "../interfaces/RegisterUser";
-import { FormValuesLogin } from "../interfaces/loginForm";
+import { FormClave, FormValuesLogin } from "../interfaces/loginForm";
 import danoneApi from "../api/danoneApi";
 import {
   add_user,
@@ -176,6 +176,36 @@ export const useDanone = () => {
       toast.error("Ocurrio un error - Intentalo más tarde", {
         position: "top-left",
       });
+    }
+  };
+
+  const recuperarClave = async (body: FormClave) => {
+    try {
+      const { data } = await danoneApi.post("/recuperar-clave", body, config);
+      const resp: ResponseLogin = data;
+
+      if (resp.res) {
+        Swal.fire({
+          title: "Clave recuperada",
+          text: resp.msg,
+          icon: "success",
+          confirmButtonText: "Aceptar",
+        });
+        return true;
+      } else {
+        Swal.fire({
+          title: "Error al recuperar la clave",
+          text: resp.msg,
+          icon: "error",
+          confirmButtonText: "Aceptar",
+        });
+        return false;
+      }
+    } catch (error) {
+      toast.error("Ocurrio un error - Intentalo más tarde", {
+        position: "top-left",
+      });
+      return false;
     }
   };
 
@@ -401,5 +431,6 @@ export const useDanone = () => {
     changePassword,
     getPercentages,
     getOndemand,
+    recuperarClave,
   };
 };
