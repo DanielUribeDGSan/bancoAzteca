@@ -1,40 +1,40 @@
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import { FormValuesLogin } from '../../../interfaces/loginForm';
-import ErrorMsg from './ErrorMsg';
-import { Link } from 'react-router-dom';
-import { useDanone } from '../../../hooks/useDanone';
-import { useState } from 'react';
-import { ProgressButton } from '../progress/ProgressButton';
-import { ModalResetPassword } from '../modals/ModalResetPassword';
-import { ResetPasswordContentIng } from '../../login/ResetPasswordContentIng';
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { FormValuesLogin } from "../../../interfaces/loginForm";
+import ErrorMsg from "./ErrorMsg";
+import { Link } from "react-router-dom";
+import { useDanone } from "../../../hooks/useDanone";
+import { useState } from "react";
+import { ProgressButton } from "../progress/ProgressButton";
+import { ModalResetPassword } from "../modals/ModalResetPassword";
+import { ResetPasswordContentIng } from "../../login/ResetPasswordContentIng";
 
 export const LoginFormIng = () => {
   const { login } = useDanone();
   const [loader, setLoader] = useState(false);
 
   const initialValues: FormValuesLogin = {
-    email: '',
-    password: '',
+    email: "",
+    clave: "",
   };
 
   const loginSchema = Yup.object({
-    email: Yup.string().required('Email is required').email().label('Email'),
+    email: Yup.string().required("Email is required").email().label("Email"),
     password: Yup.string()
-      .required('Password is mandatory')
-      .min(6, 'Enter minimum 6 characters')
-      .label('Password'),
+      .required("Password is mandatory")
+      .min(6, "Enter minimum 6 characters")
+      .label("Password"),
   });
 
   const { handleChange, handleSubmit, handleBlur, errors, values, touched } =
     useFormik({
       initialValues,
       validationSchema: loginSchema,
-      onSubmit: async ({ email, password }) => {
+      onSubmit: async ({ email, clave }) => {
         setLoader(true);
         const userBody: FormValuesLogin = {
           email: email,
-          password: password,
+          clave: clave,
         };
         await login(userBody);
         setLoader(false);
@@ -43,40 +43,40 @@ export const LoginFormIng = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className='form-login'>
-        <div className='mb-30'>
-          <label htmlFor='email'>E-MAIL</label>
+      <form onSubmit={handleSubmit} className="form-login">
+        <div className="mb-30">
+          <label htmlFor="email">E-MAIL</label>
           <input
-            className='input-login'
+            className="input-login"
             value={values.email}
             onChange={handleChange}
             onBlur={handleBlur}
-            id='email'
-            name='email'
-            type='text'
-            placeholder='Enter your email'
+            id="email"
+            name="email"
+            type="text"
+            placeholder="Enter your email"
           />
-          {touched.email && <ErrorMsg error={errors.email || ''} />}
+          {touched.email && <ErrorMsg error={errors.email || ""} />}
         </div>
         <div>
-          <label htmlFor='password'>PASSWORD</label>
+          <label htmlFor="password">PASSWORD</label>
           <input
-            className='input-login'
-            value={values.password}
+            className="input-login"
+            value={values.clave}
             onChange={handleChange}
             onBlur={handleBlur}
-            id='password'
-            name='password'
-            type='password'
-            placeholder='Enter your password'
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Enter your password"
           />
-          {touched.password && <ErrorMsg error={errors.password || ''} />}
+          {touched.clave && <ErrorMsg error={errors.clave || ""} />}
         </div>
         <p
-          className='reset-password'
-          data-bs-toggle='modal'
-          data-bs-target='#modalResetPassword'
-          style={{ cursor: 'pointer' }}
+          className="reset-password"
+          data-bs-toggle="modal"
+          data-bs-target="#modalResetPassword"
+          style={{ cursor: "pointer" }}
         >
           FORGOT MY PASSWORD
         </p>
@@ -86,20 +86,20 @@ export const LoginFormIng = () => {
           ) : (
             <>
               <button
-                className='btn-primary-lg fw-bold'
-                type='submit'
-                aria-label='Iniciar sesión'
+                className="btn-primary-lg fw-bold"
+                type="submit"
+                aria-label="Iniciar sesión"
               >
                 ENTER
               </button>
-              <Link className='link' to={'/register'}>
+              <Link className="link" to={"/register"}>
                 REGISTER
               </Link>
             </>
           )}
         </div>
       </form>
-      <ModalResetPassword idModal={'modalResetPassword'}>
+      <ModalResetPassword idModal={"modalResetPassword"}>
         <>
           <ResetPasswordContentIng />
         </>

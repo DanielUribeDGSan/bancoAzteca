@@ -1,4 +1,4 @@
-import { LiveArea } from './LiveArea';
+import { LiveArea } from "./LiveArea";
 
 export const Live = () => {
   return <LiveArea />;

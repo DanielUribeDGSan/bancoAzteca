@@ -26,6 +26,17 @@ export const MenuTop = ({ styleMenu, styleNav }: Props) => {
         </li>
         <li>
           <NavLink
+            to="/iniciar-sesion"
+            className={`text-black ${
+              isActive("/iniciar-sesion") ? "active" : ""
+            }`}
+            style={styleNav}
+          >
+            Iniciar sesión
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
             to="/registro"
             className={`text-black ${isActive("/registro") ? "active" : ""}`}
             style={styleNav}

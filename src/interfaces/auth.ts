@@ -6,6 +6,15 @@ export interface User {
   phone: string;
 }
 
+export interface UserLogin {
+  nombre: string;
+  institucion: string;
+  cargo: string;
+  telefono: string;
+  email: string;
+  email_verified_at: string;
+}
+
 export interface Lenguage {
   idioma: number;
 }

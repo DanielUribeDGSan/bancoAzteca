@@ -11,7 +11,7 @@ import {
   update_image,
   update_image_user,
 } from "../redux/features/auth-slice";
-import { User } from "../interfaces/auth";
+import { User, UserLogin } from "../interfaces/auth";
 import { useState } from "react";
 import { Programam } from "../interfaces/Program";
 import { Biographies } from "../interfaces/biographies";
@@ -30,6 +30,12 @@ interface Response {
   res: boolean;
   clave: number | string;
   user: User;
+}
+
+interface ResponseLogin {
+  msg: string;
+  res: boolean;
+  user: UserLogin;
 }
 
 const config: Config = {
@@ -133,28 +139,30 @@ export const useDanone = () => {
 
   const login = async (body: FormValuesLogin) => {
     try {
-      const { data } = await danoneApi.post("/auth/login", body, config);
-      const resp: Response = data;
+      const { data } = await danoneApi.post("/iniciar-sesion", body, config);
+      const resp: ResponseLogin = data;
 
       if (resp.res || resp.user) {
-        const dataUser = data?.user;
+        const user = data?.user;
 
         if (!accessLogin) {
-          if (dataUser?.idioma === 1) {
-            Swal.fire({
-              title: "Acceso correcto",
-              text: "¡Te esperamos a partir del 5 de julio!",
-              icon: "success",
-              confirmButtonText: "Aceptar",
-            });
-          } else {
-            Swal.fire({
-              title: "Correct access",
-              text: "¡Join us on July 5!",
-              icon: "success",
-              confirmButtonText: "Accept",
-            });
-          }
+          Swal.fire({
+            title: "Acceso correcto",
+            text: "¡Te esperamos a partir del 5 de julio!",
+            icon: "success",
+            confirmButtonText: "Aceptar",
+          });
+        } else {
+          const userStore: User = {
+            fullName: user?.nombre,
+            company: user?.institucion,
+            post: user?.cargo,
+            email: user?.email,
+            phone: user?.telefono,
+          };
+
+          dispatch(add_user(userStore));
+          navigate("/en-vivo");
         }
 
         return { resp: true };

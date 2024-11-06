@@ -5,3 +5,8 @@ export interface FormValuesRegister {
   email: string;
   phone: string;
 }
+
+export interface FormValuesLogin {
+  email: string;
+  clave: string;
+}
