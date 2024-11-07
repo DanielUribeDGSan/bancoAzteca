@@ -1,8 +1,42 @@
 import { useMediaQuery } from "@mui/material";
 import { MenuTop } from "../../components/menu/MenuTop";
 
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import { useEffect, useState } from "react";
+import { useUser } from "../../hooks/useUser";
+import { useNavigate } from "react-router-dom";
+
 export const HomeArea = () => {
   const lgScreen = useMediaQuery("(max-width:1500px)");
+  const { userData, isLoadingUser } = useUser();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isLoadingUser && !userData?.email) {
+      handleClickOpen();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoadingUser]);
+
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleCloseClick = () => {
+    setOpen(false);
+    navigate("/iniciar-sesion");
+  };
 
   return (
     <>
@@ -63,6 +97,34 @@ export const HomeArea = () => {
             </div>
           </>
         )}
+
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title" sx={{ fontSize: "1.2rem;" }}>
+            {"Ingresa al evento"}
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText
+              id="alert-dialog-description"
+              sx={{ fontSize: "1.2rem;" }}
+            >
+              Los invitamos a sumarse a la transmisión en vivo- Seminario
+              Perspectivas económicas, banca popular y futuro digital.
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button
+              sx={{ color: "var(--tp-theme-1)" }}
+              onClick={handleCloseClick}
+            >
+              Ingresa aquí
+            </Button>
+          </DialogActions>
+        </Dialog>
       </section>
     </>
   );
