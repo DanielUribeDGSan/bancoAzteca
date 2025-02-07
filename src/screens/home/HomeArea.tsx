@@ -63,13 +63,11 @@ export const HomeArea = () => {
           <h2 className="h1 text-black text-center mb-20">
             Perspectivas económicas 2025, banca popular y futuro digital
           </h2>
-          <p className="text-black text-center mb-20">
-          En Banco Azteca queremos tener un contacto más cercano con las entidades en las que tenemos presencia y qué mejor oportunidad que brindando información de valor a su comunidad periodística. <br>
-          Por ello nos complace ofrecer el seminario “Perspectivas económicas 2025, banca popular y futuro digital”, en el que destacados especialistas abordarán las complejidades del entorno económico; las oportunidades de desarrollo que esto traerá a nivel local y nacional; así como el alcance de la Inteligencia Artificial en la comunicación y el periodismo.<br>
-          Esperamos que este programa nos permita estrechar lazos a través del conocimiento.<br>
-          Alejandro Valenzuela<br>
-          Presidente del Consejo de Administración de Banco Azteca y Azteca Servicios Financieros<br>
-          </p>
+          <p className="text-black text-center mb-20">En Banco Azteca queremos tener un contacto más cercano con las entidades en las que tenemos presencia y qué mejor oportunidad que brindando información de valor a su comunidad periodística. </p>
+          <p className="text-black text-center mb-20">Por ello nos complace ofrecer el seminario “Perspectivas económicas 2025, banca popular y futuro digital”, en el que destacados especialistas abordarán las complejidades del entorno económico; las oportunidades de desarrollo que esto traerá a nivel local y nacional; así como el alcance de la Inteligencia Artificial en la comunicación y el periodismo.</p>
+          <p className="text-black text-center mb-20">Esperamos que este programa nos permita estrechar lazos a través del conocimiento.</p>
+          <p className="text-black text-center mb-20">Alejandro Valenzuela</p>
+          <p className="text-black text-center mb-20">Presidente del Consejo de Administración de Banco Azteca y Azteca Servicios Financieros</p>
         </div>
         {!lgScreen && (
           <>
