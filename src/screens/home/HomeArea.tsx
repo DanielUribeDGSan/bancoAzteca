@@ -61,26 +61,15 @@ export const HomeArea = () => {
           )}
           <h1 className="h1 text-black text-center">Seminario</h1>
           <h2 className="h1 text-black text-center mb-20">
-            Perspectivas económicas, banca popular y futuro digital
+            Perspectivas económicas 2025, banca popular y futuro digital
           </h2>
           <p className="text-black text-center mb-20">
-            Para Banco Azteca es de suma relevancia estar cerca de las
-            comunidades en las que tenemos presencia, por lo que nos complace
-            ofrecer el seminario “Perspectivas económicas, banca popular y
-            futuro digital”. Destacados especialistas revisarán las
-            oportunidades de crecimiento, tanto de nuestro país, como para
-            Puebla, entidad clave en nuestra tarea de inclusión financiera.
-            Adicionalmente, ofreceremos una perspectiva de la banca popular, y
-            nos asomaremos a las transformaciones sociales que las nuevas
-            tecnologías digitales traen consigo en áreas tan importantes como la
-            comunicación y el periodismo. Estoy seguro de que esta será una gran
-            oportunidad para propiciar una mayor integración y crecimiento.
+          En Banco Azteca queremos tener un contacto más cercano con las entidades en las que tenemos presencia y qué mejor oportunidad que brindando información de valor a su comunidad periodística. <br>
+          Por ello nos complace ofrecer el seminario “Perspectivas económicas 2025, banca popular y futuro digital”, en el que destacados especialistas abordarán las complejidades del entorno económico; las oportunidades de desarrollo que esto traerá a nivel local y nacional; así como el alcance de la Inteligencia Artificial en la comunicación y el periodismo.<br>
+          Esperamos que este programa nos permita estrechar lazos a través del conocimiento.<br>
+          Alejandro Valenzuela<br>
+          Presidente del Consejo de Administración de Banco Azteca y Azteca Servicios Financieros<br>
           </p>
-          <ul>
-            <li className="text-black text-center">Tonatiuh Rodríguez</li>
-            <li className="text-black text-center">Director General </li>
-            <li className="text-black text-center">Banco Azteca</li>
-          </ul>
         </div>
         {!lgScreen && (
           <>
