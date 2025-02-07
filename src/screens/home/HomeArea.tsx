@@ -54,8 +54,8 @@ export const HomeArea = () => {
                 />
               </div>
               <div className="content-date">
-                <span>Jueves 7 de noviembre</span>
-                <span>09:45 am.</span>
+                <span>Jueves 20 de febrero</span>
+                <span>09:30 am.</span>
               </div>
             </>
           )}
@@ -80,8 +80,8 @@ export const HomeArea = () => {
               />
             </div>
             <div className="content-date">
-              <span>Jueves 7 de noviembre</span>
-              <span>09:45 am.</span>
+              <span>Jueves 20 de febrero</span>
+              <span>09:30 am.</span>
             </div>
           </>
         )}
