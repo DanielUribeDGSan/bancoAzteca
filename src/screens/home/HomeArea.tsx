@@ -85,34 +85,6 @@ export const HomeArea = () => {
             </div>
           </>
         )}
-
-        {/* <Dialog
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-        >
-          <DialogTitle id="alert-dialog-title" sx={{ fontSize: "1.2rem;" }}>
-            {"Ingresa al evento"}
-          </DialogTitle>
-          <DialogContent>
-            <DialogContentText
-              id="alert-dialog-description"
-              sx={{ fontSize: "1.2rem;" }}
-            >
-              Los invitamos a sumarse a la transmisión en vivo- Seminario
-              Perspectivas económicas, banca popular y futuro digital.
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button
-              sx={{ color: "var(--tp-theme-1)" }}
-              onClick={handleCloseClick}
-            >
-              Ingresa aquí
-            </Button>
-          </DialogActions>
-        </Dialog> */}
       </section>
     </>
   );
