@@ -86,7 +86,7 @@ export const HomeArea = () => {
           </>
         )}
 
-        <Dialog
+        {/* <Dialog
           open={open}
           onClose={handleClose}
           aria-labelledby="alert-dialog-title"
@@ -112,7 +112,7 @@ export const HomeArea = () => {
               Ingresa aquí
             </Button>
           </DialogActions>
-        </Dialog>
+        </Dialog> */}
       </section>
     </>
   );
