@@ -120,8 +120,8 @@ export const useDanone = () => {
             confirmButtonText: "Aceptar",
           });
         }
-
-        navigate("/en-vivo");
+        navigate("/");
+        //navigate("/en-vivo");
 
         return { resp: true };
       } else {
