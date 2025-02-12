@@ -114,14 +114,14 @@ export const useDanone = () => {
             html: `
             <img class="img-fluid" src="./assets/img/logos/LOGO_BAZ.png" style="margin-bottom:2rem; objet-fit: contain; " width="200" />
             <h2 class="fw-bold">Registro correcto</h2>
-            <p>¡Te esperamos a partir del 20 de febrero.!</p>
+            <p>¡Te esperamos a partir del 20 de febrero a partir de las 09:30 am.!</p>
             `,
             icon: undefined,
             confirmButtonText: "Aceptar",
           });
         }
-
-        navigate("/en-vivo");
+        navigate("/");
+        //navigate("/en-vivo");
 
         return { resp: true };
       } else {

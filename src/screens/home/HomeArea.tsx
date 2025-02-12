@@ -55,8 +55,8 @@ export const HomeArea = () => {
                 />
               </div>
               <div className="content-date">
-                <span>Jueves 7 de noviembre</span>
-                <span>09:45 am.</span>
+                <span>Jueves 20 de febrero</span>
+                <span>09:30 am.</span>
               </div>
             </>
           )}
@@ -81,8 +81,9 @@ export const HomeArea = () => {
             Esperamos que este programa nos permita estrechar lazos a través del
             conocimiento.
           </p>
-          <p className="text-black text-center mb-20">Alejandro Valenzuela</p>
+          <br></br>
           <p className="text-black text-center mb-20">
+            Alejandro Valenzuela <br></br>
             Presidente del Consejo de Administración de Banco Azteca y Azteca
             Servicios Financieros
           </p>
@@ -97,12 +98,11 @@ export const HomeArea = () => {
               />
             </div>
             <div className="content-date">
-              <span>Jueves 7 de noviembre</span>
-              <span>09:45 am.</span>
+              <span>Jueves 20 de febrero</span>
+              <span>09:30 am.</span>
             </div>
           </>
         )}
-
         <Dialog
           open={open}
           onClose={handleClose}

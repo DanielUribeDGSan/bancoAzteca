@@ -112,8 +112,8 @@ const itemData = [
   {
     id: 5,
     img: "/assets/img/ponentes/ponente5.png",
-    name: "Tonatiuh  Rodríguez",
-    author: "Director General",
+    name: "Alejandro Valenzuela",
+    author: "Presidente del Consejo",
     linkX: "",
     linkLin: "",
     imgDescription: "/assets/img/ponentes/description5.png",
