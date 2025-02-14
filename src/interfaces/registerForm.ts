@@ -8,5 +8,4 @@ export interface FormValuesRegister {
 
 export interface FormValuesLogin {
   email: string;
-  clave: string;
 }

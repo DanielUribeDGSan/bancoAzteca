@@ -1,4 +1,4 @@
-@import '../../utils/index.scss';
+@import "../../utils/index.scss";
 
 .form-login {
   & label {
@@ -32,6 +32,16 @@
 }
 
 .form-register {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20%;
+  @media #{$xxl,$xl,$lg,$md,$sm,$xs} {
+    padding: 10%;
+  }
+  @media #{$sm,$xs} {
+    padding: 5%;
+  }
   & label {
     color: var(--tp-common-black);
     font-weight: 600;

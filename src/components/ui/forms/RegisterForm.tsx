@@ -62,7 +62,7 @@ export const RegisterForm = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <form onSubmit={handleSubmit} className="form-register mt-20 mb-20">
+      <form onSubmit={handleSubmit} className="form-register p-0 mt-20 mb-20">
         <div className="mb-30">
           <div className="row mx-0 mb-15 p-0 w-100">
             <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 mt-10">
@@ -160,13 +160,13 @@ export const RegisterForm = () => {
                     type="submit"
                     aria-label="Iniciar sesión"
                   >
-                    REGISTRAR
+                    Registrar
                   </button>
                 </>
               )}
             </div>
             <div className="col-xxl-12 col-xl-12 col-lg-12 col-md-12 mt-10">
-              <span className="text-black mr-2 d-inline-flex gap-1">
+              <span className="text-black mr-2 d-inline-flex gap-1 flex-column">
                 Términos y condiciones
                 <a
                   href="/aviso-de-privacidad-integral-baz.pdf"

@@ -1,4 +1,3 @@
-import { useMediaQuery } from "@mui/material";
 import { MenuTop } from "../../components/menu/MenuTop";
 
 import Button from "@mui/material/Button";
@@ -10,9 +9,10 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { useEffect, useState } from "react";
 import { useUser } from "../../hooks/useUser";
 import { useNavigate } from "react-router-dom";
+import { DividerTop } from "../../components/divider/DividerTop";
+import { CardInformation } from "./_components/CardInformation";
 
 export const HomeArea = () => {
-  const lgScreen = useMediaQuery("(max-width:1500px)");
   const { userData, isLoadingUser } = useUser();
   const navigate = useNavigate();
 
@@ -43,66 +43,20 @@ export const HomeArea = () => {
     <>
       <section className="home_main">
         <MenuTop />
+        <DividerTop />
 
-        <div className="content w-100 h-auto">
-          {lgScreen && (
-            <>
-              <div className="content-logo">
-                <img
-                  className="img-fluid logo"
-                  src="./assets/img/logos/LOGO_BAZ.png"
-                  alt="danone"
-                />
-              </div>
-              <div className="content-date">
-                <span>Jueves 20 de febrero</span>
-                <span>09:30 am.</span>
-              </div>
-            </>
-          )}
-          <h1 className="h1 text-black text-center">Seminario</h1>
-          <h2 className="h1 text-black text-center mb-20">
-            Perspectivas económicas 2025, banca popular y futuro digital
-          </h2>
-          <p className="text-black text-center mb-20">
-            En Banco Azteca queremos tener un contacto más cercano con las
-            entidades en las que tenemos presencia y qué mejor oportunidad que
-            brindando información de valor a su comunidad periodística.{" "}
-          </p>
-          <p className="text-black text-center mb-20">
-            Por ello nos complace ofrecer el seminario “Perspectivas económicas
-            2025, banca popular y futuro digital”, en el que destacados
-            especialistas abordarán las complejidades del entorno económico; las
-            oportunidades de desarrollo que esto traerá a nivel local y
-            nacional; así como el alcance de la Inteligencia Artificial en la
-            comunicación y el periodismo.
-          </p>
-          <p className="text-black text-center mb-20">
-            Esperamos que este programa nos permita estrechar lazos a través del
-            conocimiento.
-          </p>
-          <br></br>
-          <p className="text-black text-center mb-20">
-            Alejandro Valenzuela <br></br>
-            Presidente del Consejo de Administración de Banco Azteca y Azteca
-            Servicios Financieros
-          </p>
+        <div className="row m-0 p-0 h-100 d-flex align-items-center justify-content-center">
+          <div className="col-xxl-5 col-xl-5 col-lg-5 m-0 p-0 h-100 ">
+            <CardInformation />
+          </div>
+          <div className="col-xxl-7 col-xl-7 col-lg-7 m-0 p-0 h-100 d-flex align-items-center">
+            <img
+              className="img-fluid h-100 w-100"
+              src="./assets/img/home/Imagen_Inicio.png"
+              alt="danone"
+            />
+          </div>
         </div>
-        {!lgScreen && (
-          <>
-            <div className="content-logo">
-              <img
-                className="img-fluid logo"
-                src="./assets/img/logos/LOGO_BAZ.png"
-                alt="danone"
-              />
-            </div>
-            <div className="content-date">
-              <span>Jueves 20 de febrero</span>
-              <span>09:30 am.</span>
-            </div>
-          </>
-        )}
         <Dialog
           open={open}
           onClose={handleClose}

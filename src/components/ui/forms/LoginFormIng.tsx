@@ -15,7 +15,6 @@ export const LoginFormIng = () => {
 
   const initialValues: FormValuesLogin = {
     email: "",
-    clave: "",
   };
 
   const loginSchema = Yup.object({
@@ -30,11 +29,10 @@ export const LoginFormIng = () => {
     useFormik({
       initialValues,
       validationSchema: loginSchema,
-      onSubmit: async ({ email, clave }) => {
+      onSubmit: async ({ email }) => {
         setLoader(true);
         const userBody: FormValuesLogin = {
           email: email,
-          clave: clave,
         };
         await login(userBody);
         setLoader(false);
@@ -58,20 +56,7 @@ export const LoginFormIng = () => {
           />
           {touched.email && <ErrorMsg error={errors.email || ""} />}
         </div>
-        <div>
-          <label htmlFor="password">PASSWORD</label>
-          <input
-            className="input-login"
-            value={values.clave}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            id="password"
-            name="password"
-            type="password"
-            placeholder="Enter your password"
-          />
-          {touched.clave && <ErrorMsg error={errors.clave || ""} />}
-        </div>
+
         <p
           className="reset-password"
           data-bs-toggle="modal"

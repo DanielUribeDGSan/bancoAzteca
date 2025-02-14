@@ -40,7 +40,7 @@ body {
   font-family: var(--tp-ff-body);
   font-size: 14px;
   font-weight: 400;
-  color: var(--tp-text-body);
+  color: var(--tp-theme-1);
   line-height: 23px;
   overflow-x: hidden;
 }
@@ -66,22 +66,42 @@ h6 {
 
 h1 {
   font-size: 40px;
+  @media #{$sm,$xs} {
+    font-size: 2.2rem;
+    line-height: 2.5rem;
+  }
 }
 
 h2 {
   font-size: 32px;
+  @media #{$sm,$xs} {
+    font-size: 2rem;
+    line-height: 2.2rem;
+  }
 }
 
 h3 {
   font-size: 28px;
+  @media #{$sm,$xs} {
+    font-size: 1.8rem;
+    line-height: 2rem;
+  }
 }
 
 h4 {
   font-size: 24px;
+  @media #{$sm,$xs} {
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+  }
 }
 
 h5 {
   font-size: 20px;
+  @media #{$sm,$xs} {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+  }
 }
 
 h6 {
@@ -97,7 +117,7 @@ p {
   font-family: var(--tp-ff-p);
   font-size: 18px;
   font-weight: 400;
-  color: var(--tp-text-body);
+  color: var(--tp-theme-1);
   margin-bottom: 15px;
   line-height: 23px;
 }
@@ -449,5 +469,22 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
   font-weight: 700;
   @media #{$sm,$xs} {
     font-size: 1.8rem;
+  }
+}
+
+.label-title-lg {
+  width: 100%;
+  text-align: center;
+  padding: 0.7rem 1.5rem;
+  font-weight: 500;
+  font-size: 1.3rem;
+  line-height: 1.5rem;
+  border-radius: 0.6rem;
+}
+
+.dividerTop {
+  padding-top: 6rem;
+  @media #{$sm,$xs} {
+    padding-top: 0rem;
   }
 }

@@ -64,7 +64,6 @@ export const LoginForm = () => {
 
       const user: FormValuesLogin = {
         email: values.email,
-        clave: values.clave,
       };
       const { resp }: any = await login(user);
 
@@ -78,13 +77,27 @@ export const LoginForm = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <form onSubmit={handleSubmit} className="form-register mt-20 mb-20">
+      <form
+        onSubmit={handleSubmit}
+        className="form-register container mt-20 mb-20"
+      >
         <div className="mb-30">
           <div className="row mx-0 mb-15 p-0 w-100">
-            <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 mt-10">
+            <div className="col-12 mb-10 d-flex align-items-center justify-content-center">
+              <span
+                className="label-title-lg"
+                style={{
+                  backgroundColor: "var(--tp-theme-4)",
+                  color: "var(--tp-common-white)",
+                }}
+              >
+                Iniciar Sesión
+              </span>
+            </div>
+            <div className="co-12 mt-10">
               <TextField
                 className="w-100"
-                label="Email"
+                label="Correo Electrónico"
                 variant="outlined"
                 value={values.email}
                 onChange={handleChange}
@@ -96,24 +109,9 @@ export const LoginForm = () => {
                 helperText={touched.email && errors.email}
               />
             </div>
-            <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-6 mt-10">
-              <TextField
-                className="w-100"
-                label="Clave"
-                variant="outlined"
-                value={values.clave}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                id="clave"
-                name="clave"
-                type="password"
-                error={touched.clave && Boolean(errors.clave)}
-                helperText={touched.clave && errors.clave}
-              />
-            </div>
 
             <div
-              className={`col-xxl-6 col-xl-6 col-lg-6 col-md-6 d-flex align-items-end justify-content-lg-start justify-content-center ${
+              className={`co-12 d-flex align-items-end justify-content-center ${
                 movilIpadaScreen ? "mt-30" : "mt-10"
               } `}
             >
@@ -122,22 +120,22 @@ export const LoginForm = () => {
               ) : (
                 <>
                   <button
-                    className="btn-secondary-lg fw-bold"
+                    className="btn-secondary-sm fw-bold"
                     type="submit"
                     aria-label="Iniciar sesión"
                   >
-                    ENTRAR
+                    Enviar
                   </button>
                 </>
               )}
             </div>
-            <div className="col-xxl-6 col-xl-6 col-lg-6 col-12 col-md-6 mt-10">
-              <span className="text-black mr-2 d-inline-flex gap-1">
+            <div className="col-xxl-12 col-xl-12 col-lg-12 col-12 col-md-12 mt-10 d-flex align-items-center justify-content-center">
+              <span className="text-black mr-2 d-inline-flex gap-1 flex-column text-center">
                 Recupera tu clave
                 <button
                   type="button"
                   className="ml-2 d-inline-flex"
-                  style={{ color: "#0000ff" }}
+                  style={{ color: "var(--tp-theme-1)" }}
                   data-bs-toggle="modal"
                   data-bs-target="#exampleModal"
                 >
