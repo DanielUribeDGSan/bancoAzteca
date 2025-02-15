@@ -1,26 +1,19 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Grid from "@mui/material/Grid";
 import { createTheme, styled, ThemeProvider } from "@mui/material/styles";
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
-import CardActions from "@mui/material/CardActions";
-import IconButton, { IconButtonProps } from "@mui/material/IconButton";
-import SettingsVoiceIcon from "@mui/icons-material/SettingsVoice";
+import IconButton from "@mui/material/IconButton";
 import { useState } from "react";
-
 import XIcon from "@mui/icons-material/X";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import InfoIcon from "@mui/icons-material/Info";
 import CloseIcon from "@mui/icons-material/Close";
-
-import "./ponentes.scss";
+import InstagramIcon from "@mui/icons-material/Instagram";
 import { Dialog, DialogContent } from "@mui/material";
 import { MenuTop } from "../../components/menu/MenuTop";
+import { BannerTitle } from "../../components/ui/titles/BannerTitle";
+import { DividerTop } from "../../components/divider/DividerTop";
 
-interface ExpandMoreProps extends IconButtonProps {
-  expand: boolean;
-}
+import "./ponentes.scss";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -32,30 +25,6 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialog-paper": {
     margin: "6px",
   },
-}));
-
-const ExpandMore = styled((props: ExpandMoreProps) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme }) => ({
-  marginLeft: "auto",
-  transition: theme.transitions.create("transform", {
-    duration: theme.transitions.duration.shortest,
-  }),
-  variants: [
-    {
-      props: ({ expand }) => !expand,
-      style: {
-        transform: "rotate(0deg)",
-      },
-    },
-    {
-      props: ({ expand }) => !!expand,
-      style: {
-        transform: "rotate(180deg)",
-      },
-    },
-  ],
 }));
 
 const theme = createTheme({
@@ -72,56 +41,57 @@ const theme = createTheme({
 const itemData = [
   {
     id: 1,
-    img: "/assets/img/ponentes/ponente1.png",
+    img: "/assets/img/ponentes/AlejandroValenzuela.png",
     name: "Jeanette Leyva",
     author: "Periodista",
-    linkX: "https://twitter.com/JLeyvaReus",
-    linkLin: "https://www.linkedin.com/in/jeanette-leyva-reus-4b658739/",
+    linkX: "https://twitter.com/",
+    linkLin: "https://www.linkedin.com/",
+    instagram: "https://www.instagram.com/",
     imgDescription: "/assets/img/ponentes/description1.png",
   },
   {
     id: 2,
-    img: "/assets/img/ponentes/ponente2.png",
+    img: "/assets/img/ponentes/VinicusCovas.png",
     name: "Vinicius Covas",
     author: "Comunicador, mercadólogo, investigador de cultura digital",
-    linkX: "https://viniciuscovas.com/",
-    linkLin: "https://www.linkedin.com/in/viniciuscovas/?locale=es_ES",
+    linkX: "https://twitter.com/",
+    linkLin: "https://www.linkedin.com/",
+    instagram: "https://www.instagram.com/",
     imgDescription: "/assets/img/ponentes/description2.png",
   },
   {
     id: 3,
-    img: "/assets/img/ponentes/ponente3.png",
+    img: "/assets/img/ponentes/JeanetteLeyva.png",
     name: "Luis Hernández",
     author: "Periodista, abogado, escritor",
-    linkX:
-      "https://www.linkedin.com/in/rafael-alvarado-126158252/?originalSubdomain=mx",
-    linkLin:
-      "https://www.linkedin.com/in/luis-hern%C3%A1ndez-mart%C3%ADnez-a374774/",
+    linkX: "https://twitter.com/",
+    linkLin: "https://www.linkedin.com/",
+    instagram: "https://www.instagram.com/",
     imgDescription: "/assets/img/ponentes/description3.png",
   },
   {
     id: 4,
-    img: "/assets/img/ponentes/ponente4.png",
+    img: "/assets/img/ponentes/LuisHernandez.png",
     name: "Rafael Alvarado",
     author: "Psicólogo, investigador social",
-    linkX:
-      "https://www.linkedin.com/in/rafael-alvarado-126158252/?originalSubdomain=mx",
-    linkLin: "https://bitacorasocial.com/inicio.html#",
+    linkX: "https://twitter.com/",
+    linkLin: "https://www.linkedin.com/",
+    instagram: "https://www.instagram.com/",
     imgDescription: "/assets/img/ponentes/description4.png",
   },
   {
     id: 5,
-    img: "/assets/img/ponentes/ponente5.png",
+    img: "/assets/img/ponentes/RafaelAlvarado.png",
     name: "Alejandro Valenzuela",
     author: "Presidente del Consejo",
-    linkX: "",
-    linkLin: "",
+    linkX: "https://twitter.com/",
+    linkLin: "https://www.linkedin.com/",
+    instagram: "https://www.instagram.com/",
     imgDescription: "/assets/img/ponentes/description5.png",
   },
 ];
 
 export const Ponentes = () => {
-  const expanded = false;
   const [open, setOpen] = useState(false);
   const handleOpen = (image: string) => {
     setImagePerson(image);
@@ -134,68 +104,72 @@ export const Ponentes = () => {
     <ThemeProvider theme={theme}>
       <div className="ponentes_main">
         <MenuTop styleMenu={{ position: "relative" }} />
+        <DividerTop className="dividerTop-small" />
+        <BannerTitle title="Ponentes" />
         <div className="content-ponentes">
-          <Grid container spacing={2}>
+          <Grid
+            container
+            spacing={2}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             {itemData.map(
-              ({ img, name, author, id, linkX, linkLin, imgDescription }) => (
+              ({ img, id, linkX, linkLin, instagram, imgDescription }) => (
                 <Grid
                   item
-                  xl={3}
-                  lg={4}
-                  md={6}
+                  xl={2}
+                  lg={3}
+                  md={4}
+                  sm={6}
                   xs={12}
-                  style={{ gap: "1rem" }}
+                  style={{
+                    gap: "1rem",
+                    display: "flex",
+                    alignItems: "center",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  }}
                   key={id}
                 >
-                  <Card sx={{ maxWidth: "100%", height: "100%" }}>
-                    <CardHeader
-                      sx={{
-                        "& .MuiCardHeader-subheader": {
-                          whiteSpace: "nowrap",
-                          overflow: "hidden",
-                          textOverflow: "ellipsis",
-                        },
-                      }}
-                      avatar={<SettingsVoiceIcon />}
-                      action={<IconButton aria-label="settings"></IconButton>}
-                      title={name}
-                      subheader={author}
-                    />
-                    <CardMedia
-                      component="img"
-                      height="320"
-                      image={img}
-                      alt="Paella dish"
-                    />
-
-                    <CardActions disableSpacing>
-                      <div className="container">
-                        {linkX && (
-                          <a
-                            className="mr-10"
-                            aria-label="add to favorites"
-                            href={linkX}
-                            target="_blank"
-                          >
-                            <XIcon sx={{ color: "#006341" }} />
-                          </a>
-                        )}
-                        {linkLin && (
-                          <a aria-label="share" href={linkLin} target="_blank">
-                            <LinkedInIcon sx={{ color: "#006341" }} />
-                          </a>
-                        )}
-                      </div>
-                      <ExpandMore
-                        expand={expanded}
-                        aria-expanded={expanded}
-                        aria-label="show more"
-                        onClick={() => handleOpen(imgDescription)}
-                      >
-                        <InfoIcon sx={{ color: "#006341" }} />
-                      </ExpandMore>
-                    </CardActions>
-                  </Card>
+                  <CardMedia
+                    component="img"
+                    height="auto"
+                    image={img}
+                    alt="Paella dish"
+                  />
+                  <div className="w-100 d-flex justify-content-center align-items-center flex-column">
+                    <div className="container d-flex justify-content-center align-items-center gap-2">
+                      {linkX && (
+                        <a
+                          aria-label="add to favorites"
+                          href={linkX}
+                          target="_blank"
+                        >
+                          <XIcon sx={{ color: "var(--tp-theme-8)" }} />
+                        </a>
+                      )}
+                      {linkLin && (
+                        <a aria-label="share" href={linkLin} target="_blank">
+                          <LinkedInIcon sx={{ color: "var(--tp-theme-8)" }} />
+                        </a>
+                      )}
+                      {instagram && (
+                        <a aria-label="share" href={linkLin} target="_blank">
+                          <InstagramIcon sx={{ color: "var(--tp-theme-8)" }} />
+                        </a>
+                      )}
+                    </div>
+                    <button
+                      className="btn-profile mt-20"
+                      type="button"
+                      onClick={() => handleOpen(imgDescription)}
+                    >
+                      Perfil
+                    </button>
+                  </div>
                 </Grid>
               )
             )}

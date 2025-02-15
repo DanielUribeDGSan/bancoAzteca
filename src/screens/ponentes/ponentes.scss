@@ -1,12 +1,8 @@
 @import "../../assets/scss/utils/index.scss";
 
 .ponentes_main {
-  background-image: url("/assets/img/backgrounds/fondoLg.webp");
   min-height: 100vh;
   width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   @media #{$md,$sm,$xs} {
     min-height: 100%;
     height: 100%;

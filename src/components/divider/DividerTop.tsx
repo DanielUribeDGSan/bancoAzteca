@@ -1,3 +1,6 @@
-export const DividerTop = () => {
-  return <div className="dividerTop" />;
+interface Props {
+  className?: string;
+}
+export const DividerTop = ({ className }: Props) => {
+  return <div className={`dividerTop ${className ?? ""}`} />;
 };

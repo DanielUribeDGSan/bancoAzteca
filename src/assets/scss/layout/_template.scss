@@ -488,3 +488,10 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
     padding-top: 0rem;
   }
 }
+
+.dividerTop-small {
+  padding-top: 2rem;
+  @media #{$sm,$xs} {
+    padding-top: 0rem;
+  }
+}

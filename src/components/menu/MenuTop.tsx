@@ -71,7 +71,7 @@ export const MenuTop = ({ styleMenu, styleNav }: Props) => {
             Ponentes
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink
             to="/agenda"
             className={`text-black ${isActive("/agenda") ? "active" : ""}`}
@@ -79,7 +79,7 @@ export const MenuTop = ({ styleMenu, styleNav }: Props) => {
           >
             Agenda
           </NavLink>
-        </li>
+        </li> */}
       </ul>
     </div>
   );
