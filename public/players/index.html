@@ -34,11 +34,11 @@
     />
 
     <link href="./css/colors.css" rel="stylesheet" />
-    <link href="./css/en_vivo.css?ver=1.0.16" rel="stylesheet" />
-    <link href="./css/en_vivo2.css?ver=1.0.16" rel="stylesheet" />
-    <!-- <link href="./css/loading.css?ver=1.0.16" rel="stylesheet"> -->
+    <link href="./css/en_vivo.css?ver=1.0.18" rel="stylesheet" />
+    <link href="./css/en_vivo2.css?ver=1.0.18" rel="stylesheet" />
+    <!-- <link href="./css/loading.css?ver=1.0.18" rel="stylesheet"> -->
 
-    <!-- <link href="./css/validarMovil2.css?ver=1.0.16" rel="stylesheet">  -->
+    <!-- <link href="./css/validarMovil2.css?ver=1.0.18" rel="stylesheet">  -->
 
     <!-- Alertas -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -49,8 +49,8 @@
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-messaging.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-storage.js"></script>
-    <script src="./js/conexion.js?ver=1.0.16"></script>
-    <script src="./js/jquery.min.js?ver=1.0.16"></script>
+    <script src="./js/conexion.js?ver=1.0.18"></script>
+    <script src="./js/jquery.min.js?ver=1.0.18"></script>
     <script>
       const setItem = () => {
         const urlParams = new URLSearchParams(window.location.search);
@@ -1568,9 +1568,19 @@
             ) {
               e.preventDefault();
               if (screen.width > 768) {
+                const button = document.getElementById("btn-msg-web");
                 $("#btn-msg-web").trigger("click");
+                button.disabled = true;
+                setTimeout(() => {
+                  button.disabled = false;
+                }, 1000);
               } else {
+                const button = document.getElementById("btn-msg-movil");
                 $("#btn-msg-movil").trigger("click");
+                button.disabled = true;
+                setTimeout(() => {
+                  button.disabled = false;
+                }, 1000);
               }
             }
           }
@@ -1580,16 +1590,25 @@
       // Modificar los manejadores de click de los botones
       document.getElementById("btn-msg-movil").onclick = function (event) {
         event.preventDefault();
+        const button = this;
         const user = getParamValue("user");
         const email = getParamValue("email");
         registrarChatsM(user, email);
+        setTimeout(() => {
+          button.disabled = false;
+        }, 1000);
       };
 
       document.getElementById("btn-msg-web").onclick = function (event) {
         event.preventDefault();
+        const button = this;
         const user = getParamValue("user");
         const email = getParamValue("email");
+        button.disabled = true;
         registrarChats(user, email);
+        setTimeout(() => {
+          button.disabled = false;
+        }, 1000);
       };
 
       // Mantener la clase específica según el dispositivo
@@ -1610,15 +1629,15 @@
     <!-- Modales  --->
     <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}" />
     <!--<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
-    <script src="./js/bootstrap.bundle.min.js?ver=1.0.16"></script>
+    <script src="./js/bootstrap.bundle.min.js?ver=1.0.18"></script>
     <!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
-    <!--<script type="text/javascript" src="js/validarRuta.js?ver=1.0.16"></script>-->
+    <!--<script type="text/javascript" src="js/validarRuta.js?ver=1.0.18"></script>-->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script
       type="module"
       src="https://unpkg.com/emoji-picker-element@1"
     ></script>
-    <script type="text/javascript" src="./js/chat.js?ver=1.0.16"></script>
-    <!-- <script type="text/javascript" src="./js/loading.js?ver=1.0.16"></script>  -->
+    <script type="text/javascript" src="./js/chat.js?ver=1.0.18"></script>
+    <!-- <script type="text/javascript" src="./js/loading.js?ver=1.0.18"></script>  -->
   </body>
 </html>

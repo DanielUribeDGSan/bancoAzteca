@@ -191,6 +191,7 @@ function urlify(text) {
 }
 
 function registrarChats(name, email) {
+  document.getElementById("btn-msg-web").disabled = false;
   const nameStorage = name ? name : localStorage.getItem("nameDanone");
   const emailStorage = email ? email : localStorage.getItem("emailDanone");
 
@@ -230,6 +231,7 @@ function registrarChats(name, email) {
       if (result.dismiss === Swal.DismissReason.timer) {
       }
     });
+    document.getElementById("btn-msg-web").disabled = false;
     return null;
   }
   let status = "aprobado";
@@ -270,7 +272,7 @@ function registrarChats(name, email) {
                 toggle();
               }
               document.getElementById("msg-escritorio").value = "";
-
+              document.getElementById("btn-msg-web").disabled = false;
               resolve({
                 nombre: nombreValidado,
                 mensaje: mensaje,
@@ -292,6 +294,8 @@ function registrarChats(name, email) {
 }
 
 function registrarChatsM(name, email) {
+  document.getElementById("btn-msg-movil").disabled = true;
+
   const nameStorage = name ? name : localStorage.getItem("nameDanone");
   const emailStorage = email ? email : localStorage.getItem("emailDanone");
 
@@ -332,6 +336,8 @@ function registrarChatsM(name, email) {
       if (result.dismiss === Swal.DismissReason.timer) {
       }
     });
+    document.getElementById("btn-msg-movil").disabled = false;
+
     return null;
   }
 
@@ -378,6 +384,7 @@ function registrarChatsM(name, email) {
                 toggle();
               }
               document.getElementById("msg-movil").value = "";
+              document.getElementById("btn-msg-movil").disabled = false;
 
               resolve({
                 nombre: nombreValidado,
