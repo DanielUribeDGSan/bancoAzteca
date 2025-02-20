@@ -1418,6 +1418,7 @@
             <button
               type="button"
               class="btn btn-primary"
+              id="btnRegister"
               onclick="registrarPregunta()"
               style="
                 background-color: var(--fondoChatAdmin);
@@ -1478,6 +1479,7 @@
 
       const registrarPregunta = async () => {
         try {
+          document.querySelector("#btnRegister").disabled = true;
           const questionText = document.querySelector("#question").value;
           if (!questionText) {
             Swal.fire({
@@ -1524,12 +1526,56 @@
             title: "Enviada",
           });
           document.querySelector("#question").value = "";
+          document.querySelector("#btnRegister").disabled = false;
           return data;
         } catch (error) {
+          document.querySelector("#btnRegister").disabled = false;
           console.error("Error:", error);
           throw error;
         }
       };
+
+      // Detectar si es dispositivo móvil
+      function isMobile() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        );
+      }
+
+      // Función para manejar el envío de mensajes
+      function handleMessageSend() {
+        const user = getParamValue("user");
+        const email = getParamValue("email");
+
+        if (isMobile()) {
+          registrarChatsM(user, email);
+        } else {
+          registrarChats(user, email);
+        }
+      }
+
+      // Agregar evento para tecla Enter en el documento
+      document.addEventListener("keydown", function (event) {
+        // Verificar si se presionó Enter y no está en un textarea multilinea
+        if (event.key === "Enter" && !event.shiftKey) {
+          // Prevenir el comportamiento por defecto del Enter
+          event.preventDefault();
+          handleMessageSend();
+        }
+      });
+
+      // Modificar el botón existente para usar la nueva función
+      document.getElementById("btn-msg-movil").onclick = handleMessageSend;
+
+      // Opcionalmente, puedes agregar la clase específica según el dispositivo
+      document.addEventListener("DOMContentLoaded", function () {
+        const button = document.getElementById("btn-msg-movil");
+        if (isMobile()) {
+          button.classList.add("mobile-button");
+        } else {
+          button.classList.add("desktop-button");
+        }
+      });
     </script>
 
     <!-- end player -->
