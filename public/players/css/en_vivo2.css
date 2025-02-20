@@ -10761,3 +10761,19 @@ input:focus {
     margin-left: 0.8rem;
   }
 }
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    font-size: 16px !important; /* Evita el zoom automático en iOS */
+    -webkit-text-size-adjust: 100%;
+    touch-action: manipulation;
+}
+
+/* Para dispositivos iOS específicamente */
+@supports (-webkit-touch-callout: none) {
+    input, select, textarea {
+        font-size: 16px !important;
+    }
+}
