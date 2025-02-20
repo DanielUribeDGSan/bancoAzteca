@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import {
   doc,
   onSnapshot,
-  updateDoc,
   setDoc,
   deleteDoc,
   collection,
