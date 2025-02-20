@@ -2,7 +2,7 @@ const numRender = 50;
 const memoria = 100;
 var chastArr = [];
 
-var colDocument = "azteca";
+var colDocument = "azteca2";
 
 function renderMensajes() {
   let ultimosChats = [];
