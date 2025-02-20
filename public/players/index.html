@@ -34,11 +34,11 @@
     />
 
     <link href="./css/colors.css" rel="stylesheet" />
-    <link href="./css/en_vivo.css?ver=1.0.18" rel="stylesheet" />
-    <link href="./css/en_vivo2.css?ver=1.0.18" rel="stylesheet" />
-    <!-- <link href="./css/loading.css?ver=1.0.18" rel="stylesheet"> -->
+    <link href="./css/en_vivo.css?ver=1.0.19" rel="stylesheet" />
+    <link href="./css/en_vivo2.css?ver=1.0.19" rel="stylesheet" />
+    <!-- <link href="./css/loading.css?ver=1.0.19" rel="stylesheet"> -->
 
-    <!-- <link href="./css/validarMovil2.css?ver=1.0.18" rel="stylesheet">  -->
+    <!-- <link href="./css/validarMovil2.css?ver=1.0.19" rel="stylesheet">  -->
 
     <!-- Alertas -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -49,8 +49,8 @@
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-messaging.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-storage.js"></script>
-    <script src="./js/conexion.js?ver=1.0.18"></script>
-    <script src="./js/jquery.min.js?ver=1.0.18"></script>
+    <script src="./js/conexion.js?ver=1.0.19"></script>
+    <script src="./js/jquery.min.js?ver=1.0.19"></script>
     <script>
       const setItem = () => {
         const urlParams = new URLSearchParams(window.location.search);
@@ -1545,9 +1545,10 @@
 
       // Remover el event listener de keydown anterior
       // y mejorar el manejo de keyup con jQuery
+      let keyupEnabled = true;
       $(document).ready(function () {
         $("body").keyup(function (e) {
-          if (e.keyCode == 13) {
+          if (e.keyCode == 13 && keyupEnabled) {
             const activeElement = document.activeElement;
             console.log("activeElement", activeElement);
 
@@ -1567,21 +1568,24 @@
               activeElement.id === "msg-escritorio"
             ) {
               e.preventDefault();
+
+              keyupEnabled = false;
               if (screen.width > 768) {
-                const button = document.getElementById("btn-msg-web");
                 $("#btn-msg-web").trigger("click");
-                button.disabled = true;
+                document.getElementById("btn-msg-web").disabled = true;
                 setTimeout(() => {
-                  button.disabled = false;
+                  document.getElementById("btn-msg-web").disabled = false;
                 }, 1000);
               } else {
-                const button = document.getElementById("btn-msg-movil");
                 $("#btn-msg-movil").trigger("click");
-                button.disabled = true;
+                document.getElementById("btn-msg-movil").disabled = true;
                 setTimeout(() => {
-                  button.disabled = false;
+                  document.getElementById("btn-msg-movil").disabled = false;
                 }, 1000);
               }
+              setTimeout(() => {
+                keyupEnabled = true;
+              }, 1000);
             }
           }
         });
@@ -1629,15 +1633,15 @@
     <!-- Modales  --->
     <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}" />
     <!--<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
-    <script src="./js/bootstrap.bundle.min.js?ver=1.0.18"></script>
+    <script src="./js/bootstrap.bundle.min.js?ver=1.0.19"></script>
     <!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
-    <!--<script type="text/javascript" src="js/validarRuta.js?ver=1.0.18"></script>-->
+    <!--<script type="text/javascript" src="js/validarRuta.js?ver=1.0.19"></script>-->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script
       type="module"
       src="https://unpkg.com/emoji-picker-element@1"
     ></script>
-    <script type="text/javascript" src="./js/chat.js?ver=1.0.18"></script>
-    <!-- <script type="text/javascript" src="./js/loading.js?ver=1.0.18"></script>  -->
+    <script type="text/javascript" src="./js/chat.js?ver=1.0.19"></script>
+    <!-- <script type="text/javascript" src="./js/loading.js?ver=1.0.19"></script>  -->
   </body>
 </html>
