@@ -1399,9 +1399,9 @@
               <input
                 type="text"
                 class="form-control"
-                placeholder="Username"
+                placeholder="Pregunta"
                 id="question"
-                aria-label="Username"
+                aria-label="Pregunta"
                 aria-describedby="basic-addon1"
               />
             </div>
@@ -1523,6 +1523,7 @@
             icon: "success",
             title: "Enviada",
           });
+          document.querySelector("#question").value = "";
           return data;
         } catch (error) {
           console.error("Error:", error);
