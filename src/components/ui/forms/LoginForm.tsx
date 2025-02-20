@@ -129,7 +129,7 @@ export const LoginForm = () => {
                 </>
               )}
             </div>
-            <div className="col-xxl-12 col-xl-12 col-lg-12 col-12 col-md-12 mt-10 d-flex align-items-center justify-content-center">
+            {/* <div className="col-xxl-12 col-xl-12 col-lg-12 col-12 col-md-12 mt-10 d-flex align-items-center justify-content-center">
               <span className="text-black mr-2 d-inline-flex gap-1 flex-column text-center">
                 Recupera tu clave
                 <button
@@ -142,7 +142,7 @@ export const LoginForm = () => {
                   haciendo clic aquí
                 </button>
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
       </form>

@@ -47,7 +47,7 @@ const itemData = [
     linkX: "https://twitter.com/",
     linkLin: "https://www.linkedin.com/",
     instagram: "https://www.instagram.com/",
-    imgDescription: "/assets/img/ponentes/description1.png",
+    imgDescription: "/assets/img/ponentes/description5.png",
   },
   {
     id: 2,
@@ -67,7 +67,7 @@ const itemData = [
     linkX: "https://twitter.com/",
     linkLin: "https://www.linkedin.com/",
     instagram: "https://www.instagram.com/",
-    imgDescription: "/assets/img/ponentes/description3.png",
+    imgDescription: "/assets/img/ponentes/description1.png",
   },
   {
     id: 4,
@@ -77,7 +77,7 @@ const itemData = [
     linkX: "https://twitter.com/",
     linkLin: "https://www.linkedin.com/",
     instagram: "https://www.instagram.com/",
-    imgDescription: "/assets/img/ponentes/description4.png",
+    imgDescription: "/assets/img/ponentes/description3.png",
   },
   {
     id: 5,
@@ -87,7 +87,7 @@ const itemData = [
     linkX: "https://twitter.com/",
     linkLin: "https://www.linkedin.com/",
     instagram: "https://www.instagram.com/",
-    imgDescription: "/assets/img/ponentes/description5.png",
+    imgDescription: "/assets/img/ponentes/description4.png",
   },
 ];
 

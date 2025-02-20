@@ -149,7 +149,7 @@ export const useDanone = () => {
         if (!accessLogin) {
           Swal.fire({
             title: "Acceso correcto",
-            text: "¡Te esperamos a partir del 5 de julio!",
+            text: "¡Te esperamos a partir del 20 de febrero!",
             icon: "success",
             confirmButtonText: "Aceptar",
           });
