@@ -69,24 +69,6 @@ const enviarMensajeWeb = () => {
   document.getElementById("msg-movil").value = "";
 };
 
-if (screen.width > 768) {
-  $(document).ready(function () {
-    $("body").keyup(function (e) {
-      if (e.keyCode == 13) {
-        $("#btn-msg-web").trigger("click");
-      }
-    });
-  });
-} else {
-  $(document).ready(function () {
-    $("body").keyup(function (e) {
-      if (e.keyCode == 13) {
-        $("#btn-msg-movil").trigger("click");
-      }
-    });
-  });
-}
-
 function renderMensajes() {
   let ultimosChats = [];
 
