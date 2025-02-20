@@ -1,12 +1,14 @@
 import { MenuTop } from "../../components/menu/MenuTop";
 import { RotateVerticalPhone } from "../../components/ui/rotatePhone/RotateVerticalPhone";
 import { useUser } from "../../hooks/useUser";
+// import LiveUsersCounter from "./LiveUsersCounter";
 
 export const LiveArea = () => {
   const { userData, isLoadingUser } = useUser();
 
   return (
     <>
+      {/* <LiveUsersCounter /> */}
       <RotateVerticalPhone />
       <MenuTop
         styleMenu={{

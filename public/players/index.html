@@ -720,6 +720,23 @@
                                               </div>
                                             </div>
                                           </button>
+                                          <button
+                                            class="ScCoreButton-sc-1qn4ixc-0 ScCoreButtonPrimary-sc-1qn4ixc-1 jeBpig tw-core-button mr-2 w-auto px-2"
+                                            id="btn-msg-web"
+                                            data-toggle="modal"
+                                            data-target="#exampleModal"
+                                          >
+                                            <div
+                                              class="ScCoreButtonLabel-lh1yxp-0 xsINH tw-core-button-label"
+                                            >
+                                              <div
+                                                data-a-target="tw-core-button-label-text"
+                                                class="tw-align-items-center tw-flex tw-flex-grow-0 tw-justify-content-start"
+                                              >
+                                                Haz una pregunta
+                                              </div>
+                                            </div>
+                                          </button>
                                           <!-- {{-- Botones extras --}} -->
                                         </div>
                                       </div>
@@ -1200,10 +1217,29 @@
                                             "
                                           ></div>
                                         </div>
+                                        <div>
+                                          <button
+                                            class="ScCoreButton-sc-1qn4ixc-0 ScCoreButtonPrimary-sc-1qn4ixc-1 jeBpig tw-core-button"
+                                            id="btn-msg-web"
+                                            onclick="registrarChats(getParamValue('user'), getParamValue('email'))"
+                                          >
+                                            <div
+                                              class="ScCoreButtonLabel-lh1yxp-0 xsINH tw-core-button-label"
+                                            >
+                                              <div
+                                                data-a-target="tw-core-button-label-text"
+                                                class="tw-align-items-center tw-flex tw-flex-grow-0 tw-justify-content-start"
+                                              >
+                                                Enviar
+                                              </div>
+                                            </div>
+                                          </button>
+                                        </div>
                                         <button
-                                          class="ScCoreButton-sc-1qn4ixc-0 ScCoreButtonPrimary-sc-1qn4ixc-1 jeBpig tw-core-button"
+                                          class="ScCoreButton-sc-1qn4ixc-0 ScCoreButtonPrimary-sc-1qn4ixc-1 jeBpig tw-core-button mr-2 w-auto px-2"
                                           id="btn-msg-web"
-                                          onclick="registrarChats(getParamValue('user'), getParamValue('email'))"
+                                          data-toggle="modal"
+                                          data-target="#exampleModal"
                                         >
                                           <div
                                             class="ScCoreButtonLabel-lh1yxp-0 xsINH tw-core-button-label"
@@ -1212,7 +1248,7 @@
                                               data-a-target="tw-core-button-label-text"
                                               class="tw-align-items-center tw-flex tw-flex-grow-0 tw-justify-content-start"
                                             >
-                                              Enviar
+                                              Haz una pregunta
                                             </div>
                                           </div>
                                         </button>
@@ -1331,6 +1367,70 @@
       </div>
     </div>
 
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Escribe tu pregunta
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">
+                  <i class="fa fa-question"></i>
+                </span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Username"
+                id="question"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              style="background-color: #fff; color: #000; border: #fff"
+              data-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="registrarPregunta()"
+              style="
+                background-color: var(--fondoChatAdmin);
+                border: var(--fondoChatAdmin);
+              "
+            >
+              Enviar pregunta
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script>
       const user = document.querySelector("#nameUserId");
       user.innerHTML = getParamValue("user");
@@ -1375,6 +1475,60 @@
       sendEmail(email)
         .then((response) => console.log("Success:", response))
         .catch((error) => console.error("Error:", error));
+
+      const registrarPregunta = async () => {
+        try {
+          const questionText = document.querySelector("#question").value;
+          if (!questionText) {
+            Swal.fire({
+              title: "Pregunta vacía",
+              text: "Por favor escribe una pregunta",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "var(--fondoChatAdmin)",
+              cancelButtonColor: "#d33",
+              confirmButtonText: "Aceptar",
+              cancelButtonText: "Cancelar",
+            });
+            return;
+          }
+
+          const response = await fetch(
+            "https://apiazteca.capitaldevs.com/api/pregunta",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                pregunta: questionText,
+                email: email,
+              }),
+            }
+          );
+
+          const data = await response.json();
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            },
+          });
+          Toast.fire({
+            icon: "success",
+            title: "Enviada",
+          });
+          return data;
+        } catch (error) {
+          console.error("Error:", error);
+          throw error;
+        }
+      };
     </script>
 
     <!-- end player -->
