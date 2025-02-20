@@ -722,7 +722,7 @@
                                           </button>
                                           <button
                                             class="ScCoreButton-sc-1qn4ixc-0 ScCoreButtonPrimary-sc-1qn4ixc-1 jeBpig tw-core-button mr-2 w-auto px-2"
-                                            id="btn-msg-web"
+                                            id="btn-msg-web-1"
                                             data-toggle="modal"
                                             data-target="#exampleModal"
                                           >
@@ -1237,7 +1237,7 @@
                                         </div>
                                         <button
                                           class="ScCoreButton-sc-1qn4ixc-0 ScCoreButtonPrimary-sc-1qn4ixc-1 jeBpig tw-core-button mr-2 w-auto px-2"
-                                          id="btn-msg-web"
+                                          id="btn-msg-web-2"
                                           data-toggle="modal"
                                           data-target="#exampleModal"
                                         >
@@ -1556,6 +1556,18 @@
 
       // Agregar evento para tecla Enter en el documento
       document.addEventListener("keydown", function (event) {
+        const activeElement = document.activeElement; // Elemento actualmente enfocado
+        console.log("activeElement", activeElement);
+
+        // Evitar que el modal se abra si el botón del modal tiene el foco
+        if (
+          activeElement &&
+          activeElement.getAttribute("data-bs-toggle") === "modal"
+        ) {
+          event.preventDefault();
+          return; // No hacer nada más si se presiona Enter en el botón del modal
+        }
+
         // Verificar si se presionó Enter y no está en un textarea multilinea
         if (event.key === "Enter" && !event.shiftKey) {
           // Prevenir el comportamiento por defecto del Enter
