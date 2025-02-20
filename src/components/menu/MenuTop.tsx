@@ -3,10 +3,11 @@ import "./MenuTop.scss";
 import { useUser } from "../../hooks/useUser";
 
 interface Props {
+  className?: string | undefined;
   styleMenu?: React.CSSProperties | undefined;
   styleNav?: React.CSSProperties | undefined;
 }
-export const MenuTop = ({ styleMenu, styleNav }: Props) => {
+export const MenuTop = ({ styleMenu, styleNav, className }: Props) => {
   const location = useLocation();
   const { userData } = useUser();
 
@@ -15,7 +16,7 @@ export const MenuTop = ({ styleMenu, styleNav }: Props) => {
   };
 
   return (
-    <div className="menuTop" style={styleMenu}>
+    <div className={`menuTop ${className ?? ""}`} style={styleMenu}>
       <ul>
         <li>
           <NavLink

@@ -11,10 +11,12 @@ export const LiveArea = () => {
       {/* <LiveUsersCounter /> */}
       <RotateVerticalPhone />
       <MenuTop
+        className="menuTopMovilLeft"
         styleMenu={{
           top: "1%",
           zIndex: 999,
           left: "0%",
+          justifyContent: "flex-start",
         }}
       />
 
