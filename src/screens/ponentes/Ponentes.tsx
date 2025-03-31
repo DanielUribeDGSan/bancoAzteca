@@ -51,6 +51,16 @@ const itemData = [
   },
   {
     id: 2,
+    img: "/assets/img/ponentes/TonatiuhRodriguez.png",
+    name: "Alejandro Valenzuela",
+    author: "Presidente del Consejo",
+    linkX: "https://twitter.com/",
+    linkLin: "https://www.linkedin.com/",
+    instagram: "https://www.instagram.com/",
+    imgDescription: "/assets/img/ponentes/description6.png",
+  },
+  {
+    id: 3,
     img: "/assets/img/ponentes/VinicusCovas.png",
     name: "Vinicius Covas",
     author: "Comunicador, mercadólogo, investigador de cultura digital",
@@ -60,7 +70,7 @@ const itemData = [
     imgDescription: "/assets/img/ponentes/description2.png",
   },
   {
-    id: 3,
+    id: 4,
     img: "/assets/img/ponentes/JeanetteLeyva.png",
     name: "Luis Hernández",
     author: "Periodista, abogado, escritor",
@@ -70,7 +80,7 @@ const itemData = [
     imgDescription: "/assets/img/ponentes/description1.png",
   },
   {
-    id: 4,
+    id: 5,
     img: "/assets/img/ponentes/LuisHernandez.png",
     name: "Rafael Alvarado",
     author: "Psicólogo, investigador social",
@@ -80,7 +90,7 @@ const itemData = [
     imgDescription: "/assets/img/ponentes/description3.png",
   },
   {
-    id: 5,
+    id: 6,
     img: "/assets/img/ponentes/RafaelAlvarado.png",
     name: "Alejandro Valenzuela",
     author: "Presidente del Consejo",
@@ -89,16 +99,7 @@ const itemData = [
     instagram: "https://www.instagram.com/",
     imgDescription: "/assets/img/ponentes/description4.png",
   },
-  {
-    id: 6,
-    img: "/assets/img/ponentes/TonatiuhRodriguez.png",
-    name: "Alejandro Valenzuela",
-    author: "Presidente del Consejo",
-    linkX: "https://twitter.com/",
-    linkLin: "https://www.linkedin.com/",
-    instagram: "https://www.instagram.com/",
-    imgDescription: "/assets/img/ponentes/description6.png",
-  },
+  
 ];
 
 export const Ponentes = () => {
