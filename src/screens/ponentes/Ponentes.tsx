@@ -89,6 +89,16 @@ const itemData = [
     instagram: "https://www.instagram.com/",
     imgDescription: "/assets/img/ponentes/description4.png",
   },
+  {
+    id: 6,
+    img: "/assets/img/ponentes/TonatiuhRodriguez.png",
+    name: "Alejandro Valenzuela",
+    author: "Presidente del Consejo",
+    linkX: "https://twitter.com/",
+    linkLin: "https://www.linkedin.com/",
+    instagram: "https://www.instagram.com/",
+    imgDescription: "/assets/img/ponentes/description4.png",
+  },
 ];
 
 export const Ponentes = () => {
