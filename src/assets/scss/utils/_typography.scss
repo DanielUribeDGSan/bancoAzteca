@@ -34,6 +34,13 @@ $font-url: 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100.
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'AztecaSemiBold';
+  src: url('/public/assets/fonts/azteca/Azteca-SemiBold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 $font-family: (
   ff: (
