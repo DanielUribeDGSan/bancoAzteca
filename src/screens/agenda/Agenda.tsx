@@ -11,7 +11,7 @@ export const Agenda = () => {
       />
 
       <img
-        src="/assets/img/agenda/agenda.jpg"
+        src="/assets/img/agenda/agenda.png"
         className="img-fluid agenda-image w-100 h-100 pt-20"
       />
     </>
