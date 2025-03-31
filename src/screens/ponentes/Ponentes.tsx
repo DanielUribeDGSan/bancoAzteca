@@ -97,7 +97,7 @@ const itemData = [
     linkX: "https://twitter.com/",
     linkLin: "https://www.linkedin.com/",
     instagram: "https://www.instagram.com/",
-    imgDescription: "/assets/img/ponentes/description4.png",
+    imgDescription: "/assets/img/ponentes/description6.png",
   },
 ];
 
