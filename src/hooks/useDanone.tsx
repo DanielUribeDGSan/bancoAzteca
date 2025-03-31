@@ -108,22 +108,21 @@ export const useDanone = () => {
 
         dispatch(add_user(userStore));
 
-        if (!accessLogin) {
-          Swal.fire({
-            title: "",
-            html: `
-            <img class="img-fluid" src="./assets/img/logos/LOGO_BAZ.png" style="margin-bottom:2rem; objet-fit: contain; " width="200" />
-            <h2 class="fw-bold">Registro correcto</h2>
-            <p>¡Te esperamos a partir del 20 de febrero a partir de las 09:30 am.!</p>
-            `,
-            icon: undefined,
-            confirmButtonText: "Aceptar",
-          });
-        }
-        navigate("/");
+        Swal.fire({
+          title: "",
+          html: `
+          <img class="img-fluid" src="./assets/img/logos/LOGO_BAZ.png" style="margin-bottom:2rem; objet-fit: contain; " width="200" />
+          <h2 class="fw-bold">Registro correcto</h2>
+          <p>¡Te esperamos a partir del 10 de abril a partir de las 09:30 am.!</p>
+          `,
+          icon: undefined,
+          confirmButtonText: "Aceptar",
+        });
+
+        navigate("/agenda");
         //navigate("/en-vivo");
 
-        return { resp: true };
+        //return { resp: true };
       } else {
         toast.error(resp?.msg, {
           position: "top-left",
@@ -163,7 +162,7 @@ export const useDanone = () => {
           };
 
           dispatch(add_user(userStore));
-          navigate("/en-vivo");
+          //navigate("/en-vivo");
         }
 
         return { resp: true };
