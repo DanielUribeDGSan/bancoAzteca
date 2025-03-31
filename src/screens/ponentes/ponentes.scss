@@ -1,5 +1,14 @@
 @import "../../assets/scss/utils/index.scss";
 
+
+body{
+  background-image: url('/public/assets/img/ponentes/fondo.jpeg');
+  background-attachment: fixed;
+  background-origin: border-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 .ponentes_main {
   min-height: 100vh;
   width: 100%;
