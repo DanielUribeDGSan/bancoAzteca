@@ -4,11 +4,49 @@
 $font-url: 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet';
 
 // font family
-$font-family: (
+/* $font-family: (
   ff: (
     body: "'Montserrat', sans-serif",
     heading: "'Montserrat', sans-serif",
     p: "'Montserrat', sans-serif",
+    fontawesome: 'Font Awesome 5 Pro',
+  ),
+); */
+
+@font-face {
+  font-family: 'AztecaBoldIt';
+  src: url('/public/assets/fonts/azteca/Azteca-Bold_It.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AztecaBold';
+  src: url('/public/assets/fonts/azteca/Azteca-Bold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AztecaLight';
+  src: url('/public/assets/fonts/azteca/Azteca-Cd_Light.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AztecaSemiBold';
+  src: url('/public/assets/fonts/azteca/Azteca-SemiBold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+$font-family: (
+  ff: (
+    body: "'AztecaBold', sans-serif",
+    heading: "'AztecaBoldIt', sans-serif",
+    p: "'AztecaLight', sans-serif",
     fontawesome: 'Font Awesome 5 Pro',
   ),
 );

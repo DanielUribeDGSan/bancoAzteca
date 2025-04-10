@@ -13,13 +13,17 @@
     }
 
     .red {
+      font-family: 'AztecaBoldIt', sans-serif;
       color: var(--tp-theme-8);
     }
     .green-strong {
+      font-family: 'AztecaBoldIt', sans-serif;
       color: var(--tp-theme-1);
     }
     .green {
+      font-family: 'AztecaSemiBold', sans-serif;
       color: var(--tp-theme-4);
+      font-size: 14px;
     }
   }
 }
